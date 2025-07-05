@@ -1,5 +1,15 @@
 # 图文助手
 
+
+
+## 引用方法
+
+```js
+fetch('https://cdn.jsdelivr.net/gh/miaopasixx/Sun-graphic-assistant@main/%E5%9B%BE%E6%96%87%E5%8A%A9%E6%89%8B.js')
+  .then(r => r.text())
+  .then(eval);
+···
+
 ## 简介
 
 图文助手是一款专为批量自动化发布答题指南、图文教程等内容设计的高效工具。它支持内容的智能解析、编辑、模板导入导出与无人值守自动推送，极大提升内容运营效率，适用于各类需要定时、批量推送答题或图文内容的场景。
