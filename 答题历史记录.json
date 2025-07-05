@@ -1,0 +1,81 @@
+{
+  "contentSequence": [
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题1：人类最早使用的工具是什么？, A石头, B木棍, C骨头*, D火",
+      "id": "mcork6t6ys0lyv0q3pe",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题2：以下图形题中哪一个是正确答案？,A,B,C,D",
+      "id": "mcork6t6idqckewx49",
+      "sendWithNext": true
+    },
+    {
+      "type": "image",
+      "content": "https://img.alicdn.com/imgextra/i3/2750187788/O1CN01J2cvvR27OxdAushNH_!!2750187788-0-taojianghu_pic_upload.jpeg",
+      "id": "mcork6t6ptukk5473ko",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题3：哪种动物被认为是“森林之王”？, A老虎, B熊, C狮子*, D狼",
+      "id": "mcork6t65qd9q73makd",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题4：水沸腾的温度是多少摄氏度？, A0摄氏度, B50摄氏度, C100摄氏度*, D200摄氏度",
+      "id": "mcork6t6mc0naoyav6h",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题5：世界上最高的山峰是哪座？, A珠穆朗玛峰*, B乞力马扎罗山, C富士山, D喜马拉雅山",
+      "id": "mcork6t6gn3zhjm5jjh",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题6：光速大约是多少公里每秒？, A300公里",
+      "id": "mcork6t67fk89wgdrvi",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题7：哪种乐器有黑白琴键？, A吉他, B小提琴, C钢琴*, D架子鼓",
+      "id": "mcork6t613teut52lw3l",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 以下图形题中哪一个是正确答案？,A,B,C,D",
+      "id": "mcork6t6y7yhc62oa0c",
+      "sendWithNext": true
+    },
+    {
+      "type": "image",
+      "content": "https://img.alicdn.com/imgextra/i3/2750187788/O1CN01m0DjmR27Oxd484YU2_!!2750187788-0-taojianghu_pic_upload.jpeg",
+      "id": "mcork6t61sf5133t6h8",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题9：中国的国宝是什么动物？, A东北虎, B藏羚羊, C大熊猫*, D金丝猴",
+      "id": "mcork6t7w1dxk1jou8",
+      "sendWithNext": false
+    },
+    {
+      "type": "text",
+      "content": "/setquiz {60} 问题10：哪种水果被称为“水果之王”？, A苹果, B香蕉, C榴莲*, D橙子",
+      "id": "mcork6t724xyam07unu",
+      "sendWithNext": false
+    }
+  ],
+  "typingSpeed": "100",
+  "sendInterval": "65000",
+  "parseMode": "sync",
+  "segmentMode": "quiz",
+  "time": "2025-07-04T12:01:33.962Z"
+}
