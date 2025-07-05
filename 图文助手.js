@@ -111,7 +111,7 @@ function createUltimateUserSimulator() {
     // 页签架构内容 - 精致样式
     content.innerHTML = `
         <style>
-            /* 编辑文本内容样式对齐图文.js */
+            /* ================== 编辑文本内容样式（开始） ================== */
             #ultimate-user-simulator .ultimate-text-edit-textarea {
                 width: 100%;
                 min-height: 150px;
@@ -133,7 +133,8 @@ function createUltimateUserSimulator() {
                 box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
                 background: #fff;
             }
-            /* 文本编辑模态框样式对齐图文.js */
+            /* ================== 编辑文本内容样式（结束） ================== */
+            /* ================== 文本编辑模态框样式（开始） ================== */
             #ultimate-user-simulator .ultimate-text-edit-modal {
                 position: fixed;
                 top: 0;
@@ -160,32 +161,17 @@ function createUltimateUserSimulator() {
                 animation: bounceIn 0.4s ease-out;
                 position: relative;
             }
-            #ultimate-user-simulator .ultimate-text-edit-textarea {
-                width: 100%;
-                min-height: 150px;
-                padding: 16px;
-                border: 2px solid #e5e7eb;
-                border-radius: 10px;
-                font-size: 13px;
-                line-height: 1.5;
-                resize: vertical;
-                outline: none;
-                font-family: inherit;
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-                background: rgba(255, 255, 255, 0.9);
-            }
-            #ultimate-user-simulator .ultimate-text-edit-textarea:focus {
-                border-color: #3b82f6;
-                box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
-                background: #fff;
-            }
+            /* ...已合并到上方... */
+            /* ...已合并到上方... */
             #ultimate-user-simulator .ultimate-text-edit-buttons {
                 display: flex;
                 gap: 10px;
                 justify-content: flex-end;
                 margin-top: 16px;
             }
-            /* 粘贴区内容图片和文本样式对齐图文.js */
+            /* ================== 文本编辑模态框样式（结束） ================== */
+            /* ================== 粘贴区内容图片和文本样式（开始） ================== */
+            /* 合并图片样式，避免重复 */
             #ultimate-paste-area img {
                 max-width: 100%;
                 height: auto;
@@ -193,7 +179,7 @@ function createUltimateUserSimulator() {
                 box-shadow: 0 3px 12px rgba(0,0,0,0.08);
                 background: none !important;
                 display: block;
-                margin: 10px 0;
+                margin: 8px 0;
             }
             #ultimate-paste-area p, #ultimate-paste-area span, #ultimate-paste-area div {
                 font-size: 12px;
@@ -211,15 +197,7 @@ function createUltimateUserSimulator() {
                 background: none !important;
                 box-shadow: none !important;
             }
-            /* 粘贴区内图片样式与文本样式对齐图文.js */
-            #ultimate-paste-area img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 10px;
-                box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-                display: block;
-                margin: 8px 0;
-            }
+            /* ...已合并到上方... */
             #ultimate-paste-area p, #ultimate-paste-area div, #ultimate-paste-area span, #ultimate-paste-area {
                 font-size: 12px;
                 line-height: 1.6;
@@ -227,6 +205,7 @@ function createUltimateUserSimulator() {
                 word-break: break-word;
                 white-space: pre-wrap;
             }
+            /* ================== 粘贴区内容图片和文本样式（结束） ================== */
         </style>
         <style>
             /* 核心动画定义 */
@@ -353,6 +332,7 @@ function createUltimateUserSimulator() {
             }
             
             #ultimate-user-simulator .ultimate-tab-panel.active {
+                padding: 10px;
                 display: block;
             }
             
@@ -552,7 +532,7 @@ function createUltimateUserSimulator() {
             #ultimate-user-simulator .ultimate-empty-state {
                 text-align: center;
                 color: #9ca3af;
-                padding: 86px 16px;
+                padding: 81px 16px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
