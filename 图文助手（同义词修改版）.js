@@ -1729,6 +1729,7 @@ async function handleUltimatePaste(event) {
                     img.src = e.target.result;
                     img.style.maxWidth = '100%';
                     img.style.display = 'block';
+                    img.setAttribute('referrerpolicy', 'no-referrer');
                     pasteArea.appendChild(img);
                 };
                 reader.readAsDataURL(file);
@@ -1736,11 +1737,24 @@ async function handleUltimatePaste(event) {
             }
         }
     }
-    // 处理富文本/HTML
+    // 处理富文本/HTML，并将微信图片src替换为本地代理
     if (!handled && clipboardData && clipboardData.getData) {
         const html = clipboardData.getData('text/html');
         if (html) {
-            pasteArea.insertAdjacentHTML('beforeend', html);
+            // 1. 创建临时div解析html
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            // 2. 查找所有外链图片（http/https）
+            const imgList = Array.from(tempDiv.querySelectorAll('img'));
+            imgList.forEach(img => {
+                if (img.src && (img.src.startsWith('http://') || img.src.startsWith('https://'))) {
+                    // 用本地flask代理服务器转发
+                    img.src = 'http://127.0.0.1:5001/proxy_wx_img?url=' + encodeURIComponent(img.src);
+                    img.setAttribute('data-img-proxied', '1');
+                }
+            });
+            // 3. 插入处理后的html
+            pasteArea.insertAdjacentHTML('beforeend', tempDiv.innerHTML);
             handled = true;
         }
     }
@@ -3827,12 +3841,31 @@ async function pasteImageToChat(element, imageDataUrl) {
     if (!imageDataUrl) return;
     try {
         const response = await fetch(imageDataUrl);
-        const blob = await response.blob();
+        let blob = await response.blob();
         let ext = 'png';
-        if (blob.type === 'image/jpeg') ext = 'jpg';
-        else if (blob.type === 'image/gif') ext = 'gif';
-        else if (blob.type === 'image/webp') ext = 'webp';
-        const file = new File([blob], `image.${ext}`, { type: blob.type });
+        let fileType = blob.type;
+        // 如果是webp，转为png
+        if (blob.type === 'image/webp') {
+            const imgBitmap = await createImageBitmap(blob);
+            const canvas = document.createElement('canvas');
+            canvas.width = imgBitmap.width;
+            canvas.height = imgBitmap.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(imgBitmap, 0, 0);
+            // 导出为png
+            const pngDataUrl = canvas.toDataURL('image/png');
+            // 转为blob
+            blob = await (await fetch(pngDataUrl)).blob();
+            ext = 'png';
+            fileType = 'image/png';
+        } else if (blob.type === 'image/jpeg') {
+            ext = 'jpg';
+            fileType = 'image/jpeg';
+        } else if (blob.type === 'image/gif') {
+            ext = 'gif';
+            fileType = 'image/gif';
+        }
+        const file = new File([blob], `image.${ext}`, { type: fileType });
         const fileInput = document.querySelector('input[type="file"]');
         if (fileInput) {
             const dataTransfer = new DataTransfer();
